@@ -5,6 +5,12 @@ import { ProductCard } from '@/components/product-card';
 
 export const dynamic = 'force-dynamic';
 
+const catalogBanner = {
+  desktop: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.28.18%20%281%29.jpeg',
+  mobile: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.28.18.jpeg',
+  alt: 'Óculos de sol: estilo e proteção sob o sol.',
+};
+
 export default async function CatalogPage({
   searchParams,
 }: {
@@ -57,6 +63,13 @@ export default async function CatalogPage({
             equipe para consultar disponibilidade,
             disponibilidade e detalhes.
           </p>
+        </div>
+
+        <div className="catalog-banner">
+          <picture>
+            <source media="(max-width: 767px)" srcSet={catalogBanner.mobile} />
+            <img src={catalogBanner.desktop} alt={catalogBanner.alt} />
+          </picture>
         </div>
 
         <form

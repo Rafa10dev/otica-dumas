@@ -137,6 +137,42 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="section featured-section">
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <span className="section-kicker">
+                Seleção Ótica Dumas
+              </span>
+
+              <h2>Modelos em destaque</h2>
+
+              <p className="section-heading-description">
+                Alguns modelos que preparamos
+                para você conhecer.
+              </p>
+            </div>
+
+            <Link
+              href="/catalogo"
+              className="text-link"
+            >
+              Ver todos
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="product-grid">
+            {featured.map((product) => (
+              <ProductCard
+                key={product.slug}
+                product={product}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="gallery-section">
         <div className="container">
           <StoreGallery />
@@ -243,42 +279,6 @@ export default async function Home() {
 
               <span>Conhecer →</span>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section featured-section">
-        <div className="container">
-          <div className="section-heading">
-            <div>
-              <span className="section-kicker">
-                Seleção Ótica Dumas
-              </span>
-
-              <h2>Modelos em destaque</h2>
-
-              <p className="section-heading-description">
-                Alguns modelos que preparamos
-                para você conhecer.
-              </p>
-            </div>
-
-            <Link
-              href="/catalogo"
-              className="text-link"
-            >
-              Ver todos
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div className="product-grid">
-            {featured.map((product) => (
-              <ProductCard
-                key={product.slug}
-                product={product}
-              />
-            ))}
           </div>
         </div>
       </section>
