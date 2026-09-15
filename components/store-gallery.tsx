@@ -5,18 +5,18 @@ import { useEffect, useState } from 'react';
 
 const banners = [
   {
-    desktop: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.29.23%20%281%29.jpeg',
-    mobile: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.29.23.jpeg',
+    desktop: '/images/banners/home-banner-01-desktop.jpeg',
+    mobile: '/images/banners/home-banner-01-mobile.jpeg',
     alt: 'Ótica Dumas: uma infinidade de produtos que valorizam a sua beleza.',
   },
   {
-    desktop: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.28.44%20%281%29.jpeg',
-    mobile: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.28.44.jpeg',
+    desktop: '/images/banners/home-banner-02-desktop.jpeg',
+    mobile: '/images/banners/home-banner-02-mobile.jpeg',
     alt: 'Óculos infantis com conforto, qualidade e proteção.',
   },
   {
-    desktop: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.29.04%20%281%29.jpeg',
-    mobile: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.29.04.jpeg',
+    desktop: '/images/banners/home-banner-03-desktop.jpeg',
+    mobile: '/images/banners/home-banner-03-mobile.jpeg',
     alt: 'Óculos escuros com desconto na Ótica Dumas.',
   },
 ] as const;

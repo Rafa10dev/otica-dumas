@@ -6,8 +6,8 @@ import { ProductCard } from '@/components/product-card';
 export const dynamic = 'force-dynamic';
 
 const catalogBanner = {
-  desktop: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.28.18%20%281%29.jpeg',
-  mobile: '/images/banners/WhatsApp%20Image%202026-09-14%20at%2014.28.18.jpeg',
+  desktop: '/images/banners/catalogo-banner-desktop.jpeg',
+  mobile: '/images/banners/catalogo-banner-mobile.jpeg',
   alt: 'Óculos de sol: estilo e proteção sob o sol.',
 };
 
