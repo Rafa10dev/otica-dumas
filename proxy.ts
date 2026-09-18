@@ -47,7 +47,7 @@ async function validateSession(
 
     return (
       Boolean(payload.sub) &&
-      payload.role === 'ADMIN' &&
+      (payload.role === 'ADMIN' || payload.role === 'ADMIN_PRINCIPAL') &&
       typeof payload.email === 'string'
     );
   } catch {

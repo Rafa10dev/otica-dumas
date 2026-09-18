@@ -87,7 +87,7 @@ export default function ContatoPage() {
             </p>
 
             <a
-              href="https://www.google.com/maps/place/%C3%93tica+Dumas/@-22.3546487,-48.7948612,15z/data=!3m1!4b1!4m16!1m9!4m8!1m0!1m6!1m2!1s0x94bf55560e7d0785:0xe74e8f787721ea1f!2s%C3%93tica+Dumas,+R.+Nove+de+Julho,+159+-+Vila+Ruiz,+Pederneiras+-+SP,+17280-015!2m2!1d-48.7764071!2d-22.3546696!3m5!1s0x94bf55560e7d0785:0xe74e8f787721ea1f!8m2!3d-22.3546696!4d-48.7764071!16s%2Fg%2F11y97vmt02?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D"
+              href="https://www.google.com/maps/search/?api=1&query=-22.3546696,-48.7764071"
               target="_blank"
               rel="noopener noreferrer"
               className="secondary-button"
@@ -119,6 +119,7 @@ export default function ContatoPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="contact-social-card"
+              aria-label="Instagram da Ótica Dumas"
             >
               <InstagramIcon size={24} />
 
@@ -135,6 +136,7 @@ export default function ContatoPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="contact-social-card"
+              aria-label="Facebook da Ótica Dumas"
             >
               <FacebookIcon size={24} />
 
@@ -151,6 +153,7 @@ export default function ContatoPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="contact-social-card"
+              aria-label="Threads da Ótica Dumas"
             >
               <ThreadsIcon size={24} />
 

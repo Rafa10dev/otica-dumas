@@ -17,8 +17,7 @@ async function main() {
   const email = process.env.ADMIN_EMAIL?.trim().toLowerCase();
   const password = process.env.ADMIN_PASSWORD;
   if (!email || !password) throw new Error('ADMIN_EMAIL e ADMIN_PASSWORD precisam estar definidos no .env.');
-  const existing = await prisma.user.findUnique({ where: { email } });
-  await prisma.user.upsert({ where: { email }, update: { name, active: existing?.active ?? true }, create: { name, email, passwordHash: await bcrypt.hash(password, 12), role: 'ADMIN', active: true } });
+  await prisma.user.upsert({ where: { email }, update: { name, active: true, role: 'ADMIN_PRINCIPAL' }, create: { name, email, passwordHash: await bcrypt.hash(password, 12), role: 'ADMIN_PRINCIPAL', active: true } });
   console.log('Seed executado com sucesso.');
 }
 

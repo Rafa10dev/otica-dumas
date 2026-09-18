@@ -11,12 +11,15 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: 'Ótica Dumas | Pederneiras - SP',
+  icons: {
+    icon: '/images/logodumassemfundo.png',
+  },
   description:
     'Ótica Dumas em Pederneiras - SP. Armações, lentes, multifocais, lentes solares, ajustes e reparos especializados.',
   openGraph: {
     title: 'Ótica Dumas | Pederneiras - SP',
     description:
-      'Valorizando sua visão ✨',
+      'Valorizando sua visão.',
     type: 'website',
     url: 'https://www.instagram.com/otica.dumas/',
   },
@@ -44,12 +47,18 @@ export default function RootLayout({
           <div className="container footer-grid">
             <div className="footer-brand">
               <div className="footer-brand-top">
-                <div className="footer-logo">
-                  <img
-                    src="/images/otica-dumas-logo.jpg"
-                    alt="Ótica Dumas"
-                  />
-                </div>
+                <Link
+                  href="/login"
+                  className="footer-logo-link"
+                  aria-label="Acessar área administrativa"
+                >
+                  <div className="footer-logo">
+                    <img
+                      src="/images/otica-dumas-logo.jpg"
+                      alt="Ótica Dumas"
+                    />
+                  </div>
+                </Link>
 
                 <div>
                   <strong>ÓTICA DUMAS</strong>
@@ -58,7 +67,7 @@ export default function RootLayout({
               </div>
 
               <p>
-                Valorizando sua visão ✨
+                Valorizando sua visão.
               </p>
 
               <p>
@@ -75,7 +84,6 @@ export default function RootLayout({
               <Link href="/catalogo">Catálogo</Link>
               <Link href="/sobre">Sobre</Link>
               <Link href="/contato">Contato</Link>
-              <Link href="/login">Área administrativa</Link>
             </div>
 
             <div className="footer-column">
@@ -86,6 +94,7 @@ export default function RootLayout({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-link"
+                aria-label="Instagram da Ótica Dumas"
               >
                 <InstagramIcon size={17} />
                 Instagram
@@ -96,6 +105,7 @@ export default function RootLayout({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-link"
+                aria-label="Facebook da Ótica Dumas"
               >
                 <FacebookIcon size={17} />
                 Facebook
@@ -106,6 +116,7 @@ export default function RootLayout({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-link"
+                aria-label="Threads da Ótica Dumas"
               >
                 <ThreadsIcon size={17} />
                 Threads
@@ -116,6 +127,7 @@ export default function RootLayout({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-link"
+                aria-label="WhatsApp da Ótica Dumas"
               >
                 <WhatsAppIcon size={17} />
                 WhatsApp
@@ -132,7 +144,7 @@ export default function RootLayout({
               </p>
 
               <a
-                href="https://www.google.com/maps/place/%C3%93tica+Dumas/@-22.3546487,-48.7948612,15z/data=!3m1!4b1!4m16!1m9!4m8!1m0!1m6!1m2!1s0x94bf55560e7d0785:0xe74e8f787721ea1f!2s%C3%93tica+Dumas,+R.+Nove+de+Julho,+159+-+Vila+Ruiz,+Pederneiras+-+SP,+17280-015!2m2!1d-48.7764071!2d-22.3546696!3m5!1s0x94bf55560e7d0785:0xe74e8f787721ea1f!8m2!3d-22.3546696!4d-48.7764071!16s%2Fg%2F11y97vmt02?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/search/?api=1&query=-22.3546696,-48.7764071"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-map-link"

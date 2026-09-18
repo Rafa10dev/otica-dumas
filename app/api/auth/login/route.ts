@@ -54,9 +54,7 @@ export async function POST(
       );
     }
 
-    if (
-      user.role !== 'ADMIN'
-    ) {
+    if (user.role !== 'ADMIN' && user.role !== 'ADMIN_PRINCIPAL') {
       return NextResponse.json(
         {
           error:

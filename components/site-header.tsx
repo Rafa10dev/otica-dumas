@@ -87,6 +87,7 @@ export function SiteHeader() {
             href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Falar com a Ótica Dumas pelo WhatsApp"
           >
             <WhatsAppIcon size={18} />
             WhatsApp

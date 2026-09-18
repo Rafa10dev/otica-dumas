@@ -8,6 +8,12 @@ import { prisma } from '@/lib/prisma';
 const SESSION_COOKIE =
   'otica_dumas_session';
 
+export type AdminRole = 'ADMIN' | 'ADMIN_PRINCIPAL';
+
+export function isAdminRole(role: string): role is AdminRole {
+  return role === 'ADMIN' || role === 'ADMIN_PRINCIPAL';
+}
+
 function getSecret() {
   const secret =
     process.env.AUTH_SECRET;
@@ -129,6 +135,18 @@ export async function requireAdmin() {
     await destroySession();
     return { session: null, response: new Response('Acesso negado.', { status: 403 }) };
   }
-  if (user.role !== 'ADMIN') return { session: null, response: new Response('Permissão insuficiente.', { status: 403 }) };
+  if (!isAdminRole(user.role)) return { session: null, response: new Response('Permissão insuficiente.', { status: 403 }) };
   return { session: user, response: null };
+}
+
+export async function requireAdminPrincipal() {
+  const auth = await requireAdmin();
+  if (auth.response) return auth;
+  if (auth.session.role !== 'ADMIN_PRINCIPAL') {
+    return {
+      session: null,
+      response: new Response('Apenas o administrador principal pode realizar esta ação.', { status: 403 }),
+    };
+  }
+  return auth;
 }

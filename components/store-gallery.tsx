@@ -23,21 +23,43 @@ const banners = [
 
 export function StoreGallery() {
   const [current, setCurrent] = useState(0);
-  const previous = () => setCurrent((value) => value === 0 ? banners.length - 1 : value - 1);
-  const next = () => setCurrent((value) => value === banners.length - 1 ? 0 : value + 1);
+
+  const previous = () => {
+    setCurrent((value) =>
+      value === 0 ? banners.length - 1 : value - 1
+    );
+  };
+
+  const next = () => {
+    setCurrent((value) =>
+      value === banners.length - 1 ? 0 : value + 1
+    );
+  };
 
   useEffect(() => {
-    const interval = window.setInterval(next, 5000);
+    const interval = window.setInterval(() => {
+      setCurrent((value) =>
+        value === banners.length - 1 ? 0 : value + 1
+      );
+    }, 5000);
+
     return () => window.clearInterval(interval);
   }, []);
 
   const banner = banners[current];
 
   return (
-    <div className="store-gallery" aria-label="Banners em destaque">
+    <div
+      className="store-gallery"
+      aria-label="Banners em destaque"
+    >
       <div className="store-gallery-image">
-        <picture key={banner.desktop}>
-          <source media="(max-width: 767px)" srcSet={banner.mobile} />
+        <picture key={banner.desktop} className="store-gallery-picture">
+          <source
+            media="(max-width: 767px)"
+            srcSet={banner.mobile}
+          />
+
           <img
             src={banner.desktop}
             alt={banner.alt}
@@ -46,25 +68,45 @@ export function StoreGallery() {
           />
         </picture>
 
-        <button type="button" className="gallery-control gallery-prev" onClick={previous} aria-label="Banner anterior">
+        <button
+          type="button"
+          className="gallery-control gallery-prev"
+          onClick={previous}
+          aria-label="Banner anterior"
+        >
           <ChevronLeft size={20} aria-hidden="true" />
         </button>
-        <button type="button" className="gallery-control gallery-next" onClick={next} aria-label="Próximo banner">
+
+        <button
+          type="button"
+          className="gallery-control gallery-next"
+          onClick={next}
+          aria-label="Próximo banner"
+        >
           <ChevronRight size={20} aria-hidden="true" />
         </button>
-      </div>
 
-      <div className="store-gallery-dots" aria-label="Selecionar banner">
-        {banners.map((item, index) => (
-          <button
-            key={item.desktop}
-            type="button"
-            onClick={() => setCurrent(index)}
-            className={index === current ? 'gallery-dot active' : 'gallery-dot'}
-            aria-label={`Ir para o banner ${index + 1}`}
-            aria-current={index === current ? 'true' : undefined}
-          />
-        ))}
+        <div
+          className="store-gallery-dots"
+          aria-label="Selecionar banner"
+        >
+          {banners.map((item, index) => (
+            <button
+              key={item.desktop}
+              type="button"
+              onClick={() => setCurrent(index)}
+              className={
+                index === current
+                  ? 'gallery-dot active'
+                  : 'gallery-dot'
+              }
+              aria-label={`Ir para o banner ${index + 1}`}
+              aria-current={
+                index === current ? 'true' : undefined
+              }
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

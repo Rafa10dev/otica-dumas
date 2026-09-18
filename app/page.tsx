@@ -2,12 +2,15 @@ import Link from 'next/link';
 import {
   ArrowRight,
   Check,
+  Glasses,
   MapPin,
   MessageCircle,
   ShieldCheck,
   Sparkles,
+  Sun,
+  Wrench,
 } from 'lucide-react';
-import { InstagramIcon } from '@/components/social-icons';
+import { InstagramIcon, WhatsAppIcon } from '@/components/social-icons';
 import { getPublicProducts, productImage } from '@/lib/catalog';
 import { ProductCard } from '@/components/product-card';
 import { getWhatsAppLink } from '@/lib/whatsapp';
@@ -25,6 +28,12 @@ export default async function Home() {
 
   return (
     <>
+      <section className="home-top-banner" aria-label="Banners em destaque">
+        <div className="container">
+          <StoreGallery />
+        </div>
+      </section>
+
       <section className="hero">
         <div className="hero-glow glow-blue" />
         <div className="hero-glow glow-red" />
@@ -112,18 +121,13 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="floating-card top-card">
-              <div className="floating-icon blue">
-                <ShieldCheck size={19} />
-              </div>
-
-              <div>
-                <strong>Atendimento próximo</strong>
-                <span>Feito para você</span>
-              </div>
-            </div>
-
-            <div className="floating-card bottom-card">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=-22.3546696,-48.7764071"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="floating-card location-card"
+              aria-label="Visitar a loja da Ótica Dumas no Google Maps"
+            >
               <div className="floating-icon red">
                 <MapPin size={19} />
               </div>
@@ -132,7 +136,7 @@ export default async function Home() {
                 <strong>Pederneiras • SP</strong>
                 <span>Visite nossa loja</span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -173,12 +177,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="gallery-section">
-        <div className="container">
-          <StoreGallery />
-        </div>
-      </section>
-
       <section className="section category-section">
         <div className="container">
           <div className="section-heading">
@@ -209,7 +207,7 @@ export default async function Home() {
               className="category-card"
             >
               <div className="category-icon">
-                👓
+                <Glasses size={22} aria-hidden="true" />
               </div>
 
               <div>
@@ -228,7 +226,7 @@ export default async function Home() {
               className="category-card"
             >
               <div className="category-icon red">
-                🕶️
+                <Sun size={22} aria-hidden="true" />
               </div>
 
               <div>
@@ -247,7 +245,7 @@ export default async function Home() {
               className="category-card"
             >
               <div className="category-icon">
-                ✨
+                <Sparkles size={22} aria-hidden="true" />
               </div>
 
               <div>
@@ -266,7 +264,7 @@ export default async function Home() {
               className="category-card"
             >
               <div className="category-icon red">
-                🔧
+                <Wrench size={22} aria-hidden="true" />
               </div>
 
               <div>
@@ -288,14 +286,10 @@ export default async function Home() {
           <div className="about-visual">
             <div className="about-image-card">
               <img
-                src="/images/foto-12.jpeg"
+                src="/images/foto-15.jpeg"
                 alt="Modelo de óculos da Ótica Dumas"
               />
 
-              <div className="about-image-tag">
-                <Sparkles size={15} />
-                Estilo + cuidado
-              </div>
             </div>
           </div>
 
@@ -396,6 +390,7 @@ export default async function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="social-link-card"
+              aria-label="Instagram da Ótica Dumas"
             >
               <InstagramIcon size={22} />
               <div>
@@ -410,8 +405,9 @@ export default async function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="social-link-card"
+              aria-label="WhatsApp da Ótica Dumas"
             >
-              <MessageCircle size={22} />
+              <WhatsAppIcon size={22} />
               <div>
                 <strong>WhatsApp</strong>
                 <span>Fale conosco</span>
